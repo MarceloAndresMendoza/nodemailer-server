@@ -9,6 +9,11 @@ By using and implementing API-NodeMailer, you acknowledge and accept that it is 
 
 You are solely responsible for ensuring that API-NodeMailer meets your requirements and for the appropriate use and implementation of the application. Use API-NodeMailer responsibly and ensure you understand the actions it performs.
 
+## Download this software
+```bash
+git clone https://github.com/MarceloAndresMendoza/nodemailer-server
+```
+
 ## Requirements
 
 ### SMTP Server
@@ -23,7 +28,9 @@ API-NodeMailer requires a functioning SMTP server to send emails. An SMTP server
    - [Mailgun](https://www.mailgun.com/): Provides a free tier with a certain number of monthly emails.
    - [SendGrid](https://sendgrid.com/): Offers a free tier with a limited number of emails per day.
 
-Ensure that you have access to the SMTP server's host, port, secure connection settings, and authentication credentials (username and password) before proceeding with API-NodeMailer installation.
+You can even use your gmail account or another wich supports SMTP mail transfer protocol.
+
+**Ensure that you have access to the SMTP server's host, port, secure connection settings, and authentication credentials (username and password) before proceeding with API-NodeMailer installation.**
 
 ### Environment
 
@@ -32,6 +39,19 @@ API-NodeMailer is designed to run on a Node.js environment. Ensure that you have
 - [Node.js](https://nodejs.org/): API-NodeMailer requires Node.js to execute its server-side JavaScript code.
 
 Also, it comes with a handy script that installs this program as a service. Please refer to the install section. 
+
+## Ports
+
+Remember to open appropiate porst before using (even installing) this software. 
+- Port 443: for cloning this repo via https
+- Port 465: TLS encryption for mail server (or another if using SSL)
+- Port 4200: The default port of this program's API
+
+Check your firewall options if you are using UFW:
+```bash
+sudo ufw status
+```
+and your server's port forwarding options.
 
 ## Usage
 
