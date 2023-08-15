@@ -1,6 +1,13 @@
 # API-NodeMailer
 
-API-NodeMailer is a Node.js application that provides a simple API for sending emails using the Nodemailer library. This application allows you to quickly set up a server to send emails from your Node.js application, whether it's for transactional notifications, newsletters, or any other email communication needs.
+API-NodeMailer is a simple Node.js application that provides a simple API for sending emails using the Nodemailer library. This application allows you to quickly set up a server to send emails from your Node.js application, whether it's for transactional notifications, newsletters, or any other email communication needs.
+
+### Important Notes and Disclaimer
+While efforts have been made to ensure its functionality, it might not represent the best or most comprehensive implementation.
+
+By using and implementing API-NodeMailer, you acknowledge and accept that it is provided "as-is," and no warranties or guarantees of any kind are provided regarding its functionality, reliability, or suitability for any purpose.
+
+You are solely responsible for ensuring that API-NodeMailer meets your requirements and for the appropriate use and implementation of the application. Use API-NodeMailer responsibly and ensure you understand the actions it performs.
 
 ## Requirements
 
