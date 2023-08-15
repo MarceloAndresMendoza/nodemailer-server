@@ -1,4 +1,37 @@
-# API-NodeMailer Installation Script
+# API-NodeMailer
+
+API-NodeMailer is a Node.js application that provides a simple API for sending emails using the Nodemailer library. This application allows you to quickly set up a server to send emails from your Node.js application, whether it's for transactional notifications, newsletters, or any other email communication needs.
+
+## Requirements
+
+### SMTP Server
+
+API-NodeMailer requires a functioning SMTP server to send emails. An SMTP server is responsible for sending outgoing emails to their intended recipients. You have a few options for obtaining an SMTP server:
+
+1. **Self-Hosted SMTP Server:** You can set up your own SMTP server using software such as Postfix, Exim, or Microsoft Exchange. Self-hosted servers offer full control and customization.
+
+2. **Third-Party SMTP Services:** There are several third-party SMTP services that you can use, some of which offer free plans with limited sending capabilities. Here are a few popular options:
+
+   - [SendinBlue](https://app.sendinblue.com/account/register): Offers a free plan with a limited number of daily emails.
+   - [Mailgun](https://www.mailgun.com/): Provides a free tier with a certain number of monthly emails.
+   - [SendGrid](https://sendgrid.com/): Offers a free tier with a limited number of emails per day.
+
+Ensure that you have access to the SMTP server's host, port, secure connection settings, and authentication credentials (username and password) before proceeding with API-NodeMailer installation.
+
+### Environment
+
+API-NodeMailer is designed to run on a Node.js environment. Ensure that you have the following components installed:
+
+- [Node.js](https://nodejs.org/): API-NodeMailer requires Node.js to execute its server-side JavaScript code.
+
+Also, it comes with a handy script that installs this program as a service. Please refer to the install section. 
+
+## Usage
+
+API-NodeMailer provides a RESTful API for sending emails. Refer to the API endpoints documented in the [server code](src/server.js) for details on how to interact with the API and send emails.
+
+# API-NodeMailer Installation Script: 
+**install.sh**
 
 This script automates the installation of the API-NodeMailer program. It performs the following steps:
 
@@ -6,6 +39,16 @@ This script automates the installation of the API-NodeMailer program. It perform
 2. Installs your app's dependencies (if needed).
 3. Configures the API-NodeMailer server.
 4. Creates a systemd service to manage the API-NodeMailer process.
+
+## Requirements
+
+### Operating System
+
+API-NodeMailer is designed to run on Unix-like operating systems, including Linux distributions and macOS. While it may work on other systems, it's primarily tested and intended for use on these platforms.
+
+### User with Sudo Capability
+
+To install and manage system services, you need administrative privileges. You should have a user account with sudo capability. This allows you to run commands with elevated privileges to install the service files, reload the systemd daemon, and manage the service.
 
 ## Usage
 
