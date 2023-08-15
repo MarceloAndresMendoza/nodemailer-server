@@ -1,0 +1,19 @@
+                                                               nodemailer.service                                                                            
+[Unit]
+Description=NodeMailer
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v20.5.1/bin/node /opt/nodemailer-server/src/server.js
+Restart=always
+User=ubuntu
+Environment=NODE_ENV=production
+WorkingDirectory=/opt/nodemailer-server/src
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
+
