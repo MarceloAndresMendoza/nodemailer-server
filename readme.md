@@ -62,7 +62,7 @@ API-NodeMailer provides a RESTful API for sending emails. Refer to the API endpo
 
 This script automates the installation of the API-NodeMailer program. It performs the following steps:
 
-1. Copies your app files to the specified target directory.
+1. Copies the app files to target directory: /opt/api-nodemail
 2. Installs the app's dependencies.
 3. Configures the API-NodeMailer server interactively.
 4. Creates a systemd service to manage the API-NodeMailer process.
