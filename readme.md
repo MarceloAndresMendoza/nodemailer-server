@@ -97,6 +97,11 @@ npm --version
 ```
 If not, you can install it via [nvm](https://github.com/nvm-sh/nvm)
 
+After installing it, you should restart the terminal or run
+```bash
+source ~/.bashrc
+```
+
 ### Running the Script
 To run the installation script, execute the following command:
 
