@@ -89,6 +89,14 @@ Before running the script, you need to make it executable:
 chmod +x install.sh
 ```
 
+## Checking the requisites
+Ensure you have node and npm installed on your system before running the script:
+```bash
+node --version
+npm --version
+```
+If not, you can install it via [nvm](https://github.com/nvm-sh/nvm)
+
 ### Running the Script
 To run the installation script, execute the following command:
 
