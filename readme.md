@@ -55,7 +55,7 @@ and your server's port forwarding options.
 
 ## Usage
 
-API-NodeMailer provides a RESTful API for sending emails. Refer to the API endpoints documented in the [server code](src/server.js) for details on how to interact with the API and send emails.
+API-NodeMailer provides a RESTful API for sending emails. Refer to the API endpoints documented below the install section.
 
 # API-NodeMailer Installation Script: 
 **install.sh**
