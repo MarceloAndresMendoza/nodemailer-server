@@ -2,11 +2,6 @@
 echo "This script will install the API-NodeMailer program."
 echo "Please enter your password to continue."
 
-# Prompt the user for sudo access
-sudo -v
-
-# Check if sudo access was granted
-if [ $? -eq 0 ]; then
     # Run installation commands here
     echo "Installing API-NodeMailer..."
 
@@ -26,7 +21,7 @@ if [ $? -eq 0 ]; then
     # Copy your app files to the target directory
     echo "Copying files..."
     sudo mkdir -p "$TARGET_DIR"
-    cp -r "$SOURCE_DIR"/* "$TARGET_DIR/"
+    sudo cp -r "$SOURCE_DIR"/* "$TARGET_DIR/"
 
     # Navigate to the target directory
     cd "$TARGET_DIR"
@@ -97,7 +92,3 @@ if [ $? -eq 0 ]; then
     echo Installation location: $TARGET_DIR
     echo To stop the service: systemctl stop api-nodemailer
     echo To disable the service: systemctl disable api-nodemailer
-
-else
-    echo "Sudo access not granted. Exiting."
-fi
