@@ -93,7 +93,7 @@ chmod +x install.sh
 To run the installation script, execute the following command:
 
 ```bash
-sudo ./install-api-nodemailer.sh
+./install.sh
 ```
 The script will guide you through the configuration process for the API-NodeMailer program. Make sure to provide the requested information accurately.
 
@@ -134,6 +134,10 @@ Delete the service file, be careful since you can accidentally delete another fi
 sudo rm /etc/systemd/system/api-nodemailer.service
 ```
 
+# Using the API
+
+- The *GET* to your _server:port/mailer_ method will inform you about the status of the service. Also will give you the diferent methods accepted and the format of the *POST* method to send a mail.
+- The *OPTIONS* will test the connection with the _SMTP_ server.
 
 # Important Notes
 
