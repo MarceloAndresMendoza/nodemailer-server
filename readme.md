@@ -73,7 +73,7 @@ This script automates the installation of the API-NodeMailer program. It perform
 
 ### Operating System
 
-API-NodeMailer is designed to run on Unix-like operating systems, including Linux distributions and macOS. While it may work on other systems, it's primarily tested and intended for use on these platforms.
+API-NodeMailer is designed to run on Unix-like operating systems, including Ubuntu Linux distribution. While it may work on other systems, it's primarily tested and intended for use on this platform.
 
 ### User with Sudo Capability
 
