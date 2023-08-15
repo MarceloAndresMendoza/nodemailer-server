@@ -29,8 +29,9 @@ npm install
 # Configure the server
 #!/bin/bash
 
-echo "Configuration file generator for mailer-config.js"
-echo "=============================================="
+echo "API NODEMAILER CONFIGURATION"
+echo "Please, take your time to configure properly these options."
+echo "==========================================================="
 
 # Prompt for configuration values
 read -p "Enter mail server host: " host
@@ -81,10 +82,14 @@ sudo systemctl daemon-reload
 # Enable and start the service
 sudo systemctl enable api-nodemailer
 sudo systemctl start api-nodemailer
+echo "==========================================================="
 sudo systemctl status api-nodemailer
+echo "==========================================================="
 echo Finished! Check the above result of the system service, should not fail.
 echo If failed, review the steps on installation or check installed files.
+echo "==========================================================="
 echo If everything is ok, you can safely delete this folder.
-echo Installation location: $TARGET_DIR
-echo To stop the service: systemctl stop api-nodemailer
-echo To disable the service: systemctl disable api-nodemailer
+echo - Installation location: $TARGET_DIR
+echo - To stop the service: systemctl stop api-nodemailer
+echo - To disable the service: systemctl disable api-nodemailer
+echo "==========================================================="
