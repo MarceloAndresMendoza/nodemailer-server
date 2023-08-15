@@ -149,9 +149,15 @@ sudo rm /etc/systemd/system/api-nodemailer.service
 ```
 
 # Using the API
-
 - The *GET* to your _server:port/mailer_ method will inform you about the status of the service. Also will give you the diferent methods accepted and the format of the *POST* method to send a mail.
 - The *OPTIONS* will test the connection with the _SMTP_ server.
+
+# If no errors on install but can't connect to the API
+- Ensure you are using the machine's public ip
+- Check your open ports, if using a local pc ensure your router or modem has the port open and redirected to your machine (but not needed to test on local environment)
+- Check your machine's firewall
+- If you have push recent changes to the DNS: these changes takes time to propagate
+- If using AWS/Azure/Google Cloud: ensure your machine's network/security groups policies has 4200 (or any configured) port allowed for inbound/outbound traffic
 
 # Important Notes
 
