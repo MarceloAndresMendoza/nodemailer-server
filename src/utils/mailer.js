@@ -37,7 +37,7 @@ export const mailsend = async (data, massivemode) => {
         const retryTimeout = 3000; // 3 seconds
 
         if (massivemode) {
-            logger(`Massive mode engaged`);
+            logger(`PUT /mailer: MASSIVE MODE ENGAGED`);
 
             const allRecipients = `${to};${cc};${cco}`; // Combine all recipients into one string
 
