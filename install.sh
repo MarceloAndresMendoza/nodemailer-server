@@ -1,5 +1,7 @@
 #!/bin/bash
+echo "===================================================="
 echo "This script will install the API-NodeMailer program."
+echo "===================================================="
 
 # Specify the source directory of your Node.js app
 SOURCE_DIR="./"
@@ -105,7 +107,7 @@ fi
 
 echo "==========================================================="
 echo Finished! Check the above result of the system service, should not fail.
-echo If failed, review the steps on installation or check installed files.
+echo If so, review the steps on installation or check installed files.
 echo "==========================================================="
 echo If everything is ok, you can safely delete this folder.
 echo - Installation location: $TARGET_DIR
