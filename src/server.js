@@ -138,10 +138,12 @@ app.options(ENDPOINT, async (req, res) => {
 
 
 app.listen(PORT, () => {
-    logger('Server started');
+    const version = '0.1.1'
+    logger(`Server started: ${version}`);
     console.info(`+-----------------------+`);
     console.info(`|   Marcelo Andrés      |`);
     console.info(`|  2023 - Mailer Server |`);
+    console.info(`|    - Version ${version}    |`);
     console.info(`+-----------------------+`);
     console.info(`|  Listening on port    |`);
     console.info(`|                 ${PORT}  |`);
