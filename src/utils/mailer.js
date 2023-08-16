@@ -1,5 +1,5 @@
 import * as nodemailer from 'nodemailer';
-import { mailerconfig , authkey } from '../config/mailer-config.js';
+import { mailerconfig, authkey } from '../config/mailer-config.js';
 import { logger } from './logger.js';
 
 const transporter = nodemailer.createTransport(
@@ -12,10 +12,10 @@ export const testnodemailer = async () => {
         await new Promise((resolve, reject) => {
             transporter.verify((error, success) => {
                 if (error) {
-                    console.error("NODEMAILER:", error);
+                    logger("NODEMAILER:", error);
                     reject(false);
                 } else {
-                    console.log("NODEMAILER: Succesfully verified");
+                    logger("NODEMAILER: Succesfully verified");
                     resolve(true);
                 }
             });
@@ -27,21 +27,92 @@ export const testnodemailer = async () => {
     }
 };
 
-export const mailsend = async (data) => {
-    const { authkey, from, to, subject, replyto, body, text} = data;
-    try {
-        const info = await transporter.sendMail({
-            from: data.from,
-            to: data.to,
-            subject: data.subject,
-            text: data.body,
-            replyTo: data.replyto,
-            text: data.text,
-            html: data.body
-        })
-        return true;
-    } catch (error) {
-        console.error("An error occurred:", error);
-        return false; // Return false on error
+export const mailsend = async (data, massivemode) => {
+    const { from, to, cc, cco, subject, replyto, body, text } = data;
+    const sentEmails = [];
+    const failedEmails = [];
+
+    if (authkey == data.authkey) {
+        const retryAttempts = 3;
+        const retryTimeout = 3000; // 3 seconds
+
+        if (massivemode) {
+            logger(`Massive mode engaged`);
+
+            const allRecipients = `${to};${cc};${cco}`; // Combine all recipients into one string
+
+            const recipientsArray = allRecipients.split(';').map(email => email.trim()); // Split and trim emails
+
+            const batchSize = 25; // Set the batch size as needed
+
+            for (let batchNumber = 0; batchNumber < recipientsArray.length; batchNumber += batchSize) {
+                const batchRecipients = recipientsArray.slice(batchNumber, batchNumber + batchSize);
+                const batchTo = batchRecipients.filter(email => to.includes(email)).join(';');
+                const batchCc = batchRecipients.filter(email => cc.includes(email)).join(';');
+                const batchCco = batchRecipients.filter(email => cco.includes(email)).join(';');
+
+                for (let retry = 1; retry <= retryAttempts; retry++) {
+                    try {
+                        const info = await transporter.sendMail({
+                            from: from,
+                            to: batchTo,
+                            cc: batchCc,
+                            bcc: batchCco,
+                            subject: subject,
+                            text: text,
+                            replyTo: replyto,
+                            html: body
+                        });
+
+                        sentEmails.push(...batchRecipients);
+                        logger(`Batch ${batchNumber / batchSize + 1} / ${Math.ceil(recipientsArray.length / batchSize)} sent (${batchRecipients.length} recipients/${batchSize} max)`);
+                        logger(`Sent emails: ${sentEmails.join('; ')}`);
+                        break; // Break the retry loop on success
+                    } catch (error) {
+                        failedEmails.push(...batchRecipients);
+                        logger(`Batch ${batchNumber / batchSize + 1} / ${Math.ceil(recipientsArray.length / batchSize)} failed (Attempt ${retry}): ${batchRecipients.length} recipients`);
+                        logger(`Failed emails: ${failedEmails.join('; ')}`);
+
+                        if (retry < retryAttempts) {
+                            await new Promise(resolve => setTimeout(resolve, retryTimeout)); // Wait before retrying
+                        }
+                    }
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before the next batch
+            }
+
+            if (sentEmails.length > 0) { logger(`Mail sent : ${sentEmails.length} emails`); }
+            if (failedEmails.length > 0) { logger(`Mail failed : ${failedEmails.length} emails`); }
+
+            return true; // Return true after all batches have been processed
+        } else {
+            try {
+                const info = await transporter.sendMail({
+                    from: from,
+                    to: to,
+                    cc: cc,
+                    bcc: cco,
+                    subject: subject,
+                    text: text,
+                    replyTo: replyto,
+                    html: body
+                });
+
+                sentEmails.push(to, cc, cco); // Add successful emails to array
+                logger(`Mail sent!:  ${sentEmails}`);
+
+                return true;
+            } catch (error) {
+                failedEmails.push(to, cc, cco); // Add failed emails to array
+                logger(`Mail failed!: ${failedEmails}`);
+
+                return false; // Return false on error
+            }
+        }
+    } else {
+        logger(`Unauthorized request, check your authkey!`);
+        return false
     }
-}
+};
+

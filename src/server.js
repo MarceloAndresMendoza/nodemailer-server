@@ -23,10 +23,13 @@ app.get(ENDPOINT, async (req, res) => {
                 GET: "Check server status, this method",
                 OPTIONS: "Verify nodemailer connection and credentials",
                 POST: "Send mail",
+                PUT: "Massive mode send mail",
                 POSTFORMATBODY: {
                     authkey: "Use your authorization key",
                     from: "Use one of the authorized senders",
                     to: "To address",
+                    cc: "CC address",
+                    cco: "CCO address",
                     subject: "The subject",
                     replyto: "Reply-to address",
                     body: "Content of the message, use html",
@@ -37,41 +40,73 @@ app.get(ENDPOINT, async (req, res) => {
         logger('GET /mailer: Server status sent: {200}')
     } catch (error) {
         res.status(500).json({ error: error });
-        console.log(getTimestamp(), 'Error:', error)
         logger(`GET /mailer: Status sent {500} \n${error}`)
     }
 });
 
 app.post(ENDPOINT, async (req, res) => {
     try {
-        const result = await mailsend(req.body);
         if (req.body.authkey === authkey) {
+            const result = await mailsend(req.body, false);
             if (result === true) {
-                res.status(200).json({
+                const responseObj = {
                     timestamp: getTimestamp(),
                     status: 200,
                     message: 'Mail succesfully sent'
-                });
-                const sanitizedBody = { ...req.body, authkey: 'authorized' };
-                logger(`POST /mailer: Email successfully sent {200, ok}\n${JSON.stringify(sanitizedBody)}`);
+                };
+                logger(`POST /mailer: Email successfully sent {200, ok}`);
+                res.status(200).json(responseObj);
             } else {
-                res.status(500).json({
+                const responseObj = {
                     error: 'Nodemailer failed to send mail'
-                });
-                console.log(getTimestamp(), 'Error:', 'Nodemailer failed to send mail');
+                };
                 logger('POST /mailer: Nodemailer failed to send mail');
+                res.status(500).json(responseObj);
             }
         } else {
-            res.status(401).json({
+            const responseObj = {
                 error: 'Unauthorized request, rejected'
-            });
-            console.log(getTimestamp(), 'Error:', 'Unauthorized request');
+            };
             logger('POST /mailer: Unauthorized request');
+            res.status(401).json(responseObj);
         }
     } catch (error) {
-        res.status(500).json({ error: error });
-        console.log(getTimestamp(), 'Error:', error)
-        logger(`POST /mailer: Status sent {500} \n${error}`)
+        logger(`POST /mailer: Status sent {500} \n${error}`);
+        res.status(500).json({ error: 'Internal server error' }); // You can provide a generic error message here
+    }
+
+
+});
+
+app.put(ENDPOINT, async (req, res) => {
+    try {
+        if (req.body.authkey === authkey) {
+            const result = await mailsend(req.body, true);
+            if (result === true) {
+                const responseObj = {
+                    timestamp: getTimestamp(),
+                    status: 200,
+                    message: 'Massive mode mail package successfully sent'
+                };
+                logger(`PUT /mailer: Massive mode mail package successfully sent {200, ok}`);
+                res.status(200).json(responseObj);
+            } else {
+                const responseObj = {
+                    error: 'Nodemailer failed to send mail'
+                };
+                logger('PUT /mailer: Nodemailer failed to send mail');
+                res.status(500).json(responseObj);
+            }
+        } else {
+            const responseObj = {
+                error: 'Unauthorized request, rejected'
+            };
+            logger('PUT /mailer: Unauthorized request');
+            res.status(401).json(responseObj);
+        }
+    } catch (error) {
+        logger(`PUT /mailer: Status sent {500} \n${error}`);
+        res.status(500).json({ error: 'Internal server error' }); // You can provide a generic error message here
     }
 });
 
@@ -96,7 +131,6 @@ app.options(ENDPOINT, async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ error: error.message }); // Use error.message
-        console.log(getTimestamp(), 'Error:', error);
         logger(`OPTIONS /mailer: Status sent {500, error}\n${error}`);
     }
 });
@@ -104,7 +138,7 @@ app.options(ENDPOINT, async (req, res) => {
 
 
 app.listen(PORT, () => {
-    // logger('Server started');
+    logger('Server started');
     console.info(`+-----------------------+`);
     console.info(`|   Marcelo Andrés      |`);
     console.info(`|  2023 - Mailer Server |`);

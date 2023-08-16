@@ -1,0 +1,256 @@
+[230816-124952733] Server started
+[230816-125147630] POST /mailer: Status sent {500} 
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+[230816-125525484] Server started
+[230816-130428208] Server started
+[230816-130442387] Server started
+[230816-130457941] Server started
+[230816-130459150] Server started
+[230816-130505445] Server started
+[230816-130506827] Server started
+[230816-130509080] Server started
+[230816-130510436] Server started
+[230816-130512062] Server started
+[230816-130513656] Server started
+[230816-130514846] Server started
+[230816-130517078] Server started
+[230816-130531176] Server started
+[230816-130535326] Server started
+[230816-130544384] Server started
+[230816-130630340] Server started
+[230816-130640296] List of successfully sent emails:
+[230816-130640296] POST /mailer: Status sent {500} 
+ReferenceError: sanitizedBody is not defined
+[230816-130720627] Server started
+[230816-130731658] List of successfully sent emails:
+[230816-130731658] POST /mailer: Email successfully sent {200, ok}
+[230816-130942567] List of successfully sent emails:
+[230816-130942567] POST /mailer: Email successfully sent {200, ok}
+[230816-131110239] Server started
+[230816-131115927] Server started
+[230816-131121453] List of successfully sent emails:
+[230816-131121454] POST /mailer: Email successfully sent {200, ok}
+[230816-131156068] List of successfully sent emails:
+[230816-131156068] POST /mailer: Email successfully sent {200, ok}
+[230816-131428028] Server started
+[230816-131435965] Server started
+[230816-131451554] Mail sent!:
+[230816-131451554] POST /mailer: Email successfully sent {200, ok}
+[230816-131523441] Server started
+[230816-131604330] Server started
+[230816-131607083] Server started
+[230816-131616746] Server started
+[230816-131624250] Server started
+[230816-131626352] Server started
+[230816-131628953] Server started
+[230816-131631051] Server started
+[230816-131636328] Server started
+[230816-131638300] Server started
+[230816-131642741] Server started
+[230816-131650412] Mail sent!: m,m,e,n,d,o,z,a,f,@,g,m,a,i,l,.,c,o,m
+[230816-131650412] POST /mailer: Email successfully sent {200, ok}
+[230816-131825529] Server started
+[230816-131827080] Server started
+[230816-131828647] Server started
+[230816-131833054] Mail sent!:  m,m,e,n,d,o,z,a,f,@,g,m,a,i,l,.,c,o,m
+[230816-131833054] POST /mailer: Email successfully sent {200, ok}
+[230816-131847302] Server started
+[230816-131850122] Server started
+[230816-131854696] Mail sent!:  mmendozaf@gmail.com,,
+[230816-131854696] POST /mailer: Email successfully sent {200, ok}
+[230816-131911155] Server started
+[230816-131913857] Server started
+[230816-131921397] Server started
+[230816-131922877] Server started
+[230816-131924358] Server started
+[230816-131927902] Server started
+[230816-132025924] Server started
+[230816-132029543] Server started
+[230816-132102517] Server started
+[230816-132104002] Server started
+[230816-132117355] Server started
+[230816-132122097] Server started
+[230816-132125013] Server started
+[230816-132211786] Mail sent!:  mmendozaf@gmail.com,marceloandres@me.com,
+[230816-132211786] POST /mailer: Email successfully sent {200, ok}
+[230816-132245934] Massive mode engaged
+[230816-132245934] Total batches of 2 recipients: 77
+[230816-132246650] An error occurred on batch 1, attempt 1: Error: No recipients defined
+[230816-132252327] An error occurred on batch 1, attempt 2: Error: No recipients defined
+[230816-132258028] An error occurred on batch 1, attempt 3: Error: No recipients defined
+[230816-132303730] An error occurred on batch 1, attempt 4: Error: No recipients defined
+[230816-132309415] An error occurred on batch 1, attempt 5: Error: No recipients defined
+[230816-132309415] Failed to send batch 1 after 5 attempts.
+[230816-132312102] An error occurred on batch 2, attempt 1: Error: No recipients defined
+[230816-132317822] An error occurred on batch 2, attempt 2: Error: No recipients defined
+[230816-132322174] Server started
+[230816-132345096] Server started
+[230816-132442954] Server started
+[230816-132444473] Server started
+[230816-132446460] Massive mode engaged
+[230816-132446462] Total batches of 2 recipients: 77
+[230816-132447264] An error occurred on batch 1, attempt 1: Error: No recipients defined
+[230816-132452973] An error occurred on batch 1, attempt 2: Error: No recipients defined
+[230816-132458676] An error occurred on batch 1, attempt 3: Error: No recipients defined
+[230816-132504382] An error occurred on batch 1, attempt 4: Error: No recipients defined
+[230816-132510086] An error occurred on batch 1, attempt 5: Error: No recipients defined
+[230816-132510086] Failed to send batch 1 after 5 attempts.
+[230816-132512631] Server started
+[230816-132519806] Server started
+[230816-132530881] Server started
+[230816-132533507] Massive mode engaged
+[230816-132533508] Total batches of 2 recipients: 2
+[230816-132533508] Mail failed!: 
+[230816-132533508] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-132533508] Mail sent!: 
+[230816-132604447] Server started
+[230816-132606525] Massive mode engaged
+[230816-132606527] Total batches of 2 recipients: 2
+[230816-132606527] Mail sent!: 
+[230816-132606527] Mail failed!: 
+[230816-132606528] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-132638222] Server started
+[230816-132642750] Server started
+[230816-132648429] Server started
+[230816-132649247] Massive mode engaged
+[230816-132649247] Total batches of 2 recipients: 2
+[230816-132649247] Mail sent!: 
+[230816-132649247] Mail failed!: 
+[230816-132649248] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-132713578] Massive mode engaged
+[230816-132713578] Total batches of 2 recipients: 2
+[230816-132713578] Mail sent!: 
+[230816-132713578] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-132713578] Mail failed!: 
+[230816-132732166] Server started
+[230816-132736225] Server started
+[230816-132737565] Massive mode engaged
+[230816-132737567] Total batches of 2 recipients: 2
+[230816-132737567] Mail sent!: 
+[230816-132737567] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-132737567] Mail failed!: 
+[230816-132909789] Server started
+[230816-133110777] Server started
+[230816-133113381] Server started
+[230816-133123636] Server started
+[230816-133127463] Massive mode engaged
+[230816-133127463] PUT /mailer: Status sent {500} 
+TypeError: to.join is not a function
+[230816-133203034] Server started
+[230816-133212129] Server started
+[230816-133214335] Server started
+[230816-133226538] Server started
+[230816-133229383] Server started
+[230816-133235192] Server started
+[230816-133725704] Server started
+[230816-133729131] Server started
+[230816-133912813] Server started
+[230816-133938430] Server started
+[230816-133949614] Server started
+[230816-134011853] Server started
+[230816-134053916] Server started
+[230816-134057145] Server started
+[230816-134100337] Server started
+[230816-134101618] Server started
+[230816-134105007] Server started
+[230816-134113393] Server started
+[230816-134124997] Server started
+[230816-134128733] Server started
+[230816-134137581] Server started
+[230816-134142430] Server started
+[230816-134149033] Server started
+[230816-134201184] POST /mailer: Status sent {500} 
+ReferenceError: failedEmails is not defined
+[230816-134215146] Server started
+[230816-134217368] Server started
+[230816-134236547] Server started
+[230816-134238059] Server started
+[230816-134249713] Server started
+[230816-134303157] Mail sent!:  mmendozaf@gmail.com,marceloandres@me.com,
+[230816-134303157] POST /mailer: Email successfully sent {200, ok}
+[230816-134314305] Massive mode engaged
+[230816-134316364] Batch Mail sent!: ,mmendozaf@gmail.com,mmendozaf@gmail.com,miguelreyesherrera@gmail.com,miguelreyesherrera@gmail.com,marceloandres@me.com,marceloandres@icloud.com
+[230816-134318367] Mail sent!: ,mmendozaf@gmail.com,mmendozaf@gmail.com,miguelreyesherrera@gmail.com,miguelreyesherrera@gmail.com,marceloandres@me.com,marceloandres@icloud.com
+[230816-134318367] Mail failed!: 
+[230816-134318367] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-134407251] Server started
+[230816-134418275] Server started
+[230816-134426522] Server started
+[230816-134428724] Server started
+[230816-134430892] Server started
+[230816-134440621] Server started
+[230816-134446107] Server started
+[230816-134447785] Server started
+[230816-134450885] Server started
+[230816-134535745] Server started
+[230816-134538332] Server started
+[230816-134539743] Server started
+[230816-134541728] Server started
+[230816-134553861] Server started
+[230816-134555517] Server started
+[230816-134608004] Server started
+[230816-134612205] Server started
+[230816-134613824] Server started
+[230816-134620329] Server started
+[230816-134625634] Massive mode engaged
+[230816-134625634] Bath 1 / 2
+[230816-134627435] Batch Mail sent!: ,mmendozaf@gmail.com
+[230816-134629437] Bath 3 / 2
+[230816-134631148] Batch Mail sent!: mmendozaf@gmail.com,miguelreyesherrera@gmail.com
+[230816-134633150] Bath 5 / 2
+[230816-134634906] Batch Mail sent!: miguelreyesherrera@gmail.com,marceloandres@me.com
+[230816-134636908] Bath 7 / 2
+[230816-134638518] Batch Mail sent!: marceloandres@icloud.com
+[230816-134640521] Mail sent : ,mmendozaf@gmail.com,mmendozaf@gmail.com,miguelreyesherrera@gmail.com,miguelreyesherrera@gmail.com,marceloandres@me.com,marceloandres@icloud.com
+[230816-134640521] Mail failed : 
+[230816-134640521] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-134754719] Server started
+[230816-134756839] Server started
+[230816-134806458] Server started
+[230816-134807906] Server started
+[230816-134908900] Server started
+[230816-134911527] Server started
+[230816-134915507] Server started
+[230816-134920472] Server started
+[230816-134936411] Server started
+[230816-134939012] Server started
+[230816-135106491] Server started
+[230816-135121937] Server started
+[230816-135148372] Massive mode engaged
+[230816-135150012] Batch 1 / 5 sent (2 recipients)
+[230816-135153622] Batch 2 / 5 sent (2 recipients)
+[230816-135157219] Batch 3 / 5 sent (2 recipients)
+[230816-135200856] Batch 4 / 5 sent (2 recipients)
+[230816-135204670] Batch 5 / 5 sent (2 recipients)
+[230816-135206673] Mail failed : 
+[230816-135206673] Mail sent : 
+[230816-135206673] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-135232102] Server started
+[230816-135345158] Server started
+[230816-135348674] Server started
+[230816-135400895] Server started
+[230816-135403176] Server started
+[230816-135409668] Server started
+[230816-135412307] Server started
+[230816-135416258] Server started
+[230816-135418568] Server started
+[230816-135423162] Server started
+[230816-135424689] Server started
+[230816-135427083] Server started
+[230816-135513484] Server started
+[230816-135519900] Server started
+[230816-135525062] Server started
+[230816-135528032] Server started
+[230816-135535481] Server started
+[230816-135709333] Server started
+[230816-135714228] Server started
+[230816-135738178] Massive mode engaged
+[230816-135740294] Batch 1 / 1 sent (11 recipients)
+[230816-135740294] Sent emails: mmendozaf@gmail.com; mmendozaf@gmail.com; mmendozaf@gmail.com; mmendozaf@gmail.com; failme; mmendozaf@gmail.com; mmendozaf@gmail.com; miguelreyesherrera@gmail.com; miguelreyesherrera@gmail.com; marceloandres@me.com; marceloandres@icloud.com
+[230816-135742296] Mail sent : 11 emails
+[230816-135742296] PUT /mailer: Massive mode mail package successfully sent {200, ok}
+[230816-135816043] Server started
+[230816-135819418] Server started
+[230816-135824017] Server started
+[230816-135825275] Server started
+[230816-135826882] Server started
