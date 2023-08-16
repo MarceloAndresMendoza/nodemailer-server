@@ -15,6 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get(ENDPOINT, async (req, res) => {
     try {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
         res.status(200).json({
             timestamp: getTimestamp(),
             status: 200,
@@ -46,6 +48,8 @@ app.get(ENDPOINT, async (req, res) => {
 
 app.post(ENDPOINT, async (req, res) => {
     try {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
         if (req.body.authkey === authkey) {
             const result = await mailsend(req.body, false);
             if (result === true) {
@@ -80,6 +84,8 @@ app.post(ENDPOINT, async (req, res) => {
 
 app.put(ENDPOINT, async (req, res) => {
     try {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
         if (req.body.authkey === authkey) {
             const result = await mailsend(req.body, true);
             if (result === true) {
@@ -113,6 +119,8 @@ app.put(ENDPOINT, async (req, res) => {
 app.options(ENDPOINT, async (req, res) => {
     logger('OPTIONS /mailer: Verify request recieved...');
     try {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        
         const result = await testnodemailer(); // Await the async function
 
         if (result === true) {
