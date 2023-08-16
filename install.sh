@@ -15,7 +15,7 @@ CURRENT_USER=$(whoami)
 CURRENT_GROUP=$(id -gn)
 
 # Check if the configuration file exists
-if [ -f "src/config/mailer-config.js" ]; then
+if [ -f "$TARGET_DIR/src/config/mailer-config.js" ]; then
     # Update the program
     echo "Program already installed, updating..."
     # Copy your app files to the target directory
