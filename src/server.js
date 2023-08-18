@@ -3,6 +3,15 @@ import { getTimestamp } from './utils/utils.js';
 import { logger } from './utils/logger.js';
 import { mailsend, testnodemailer } from './utils/mailer.js';
 import { authkey } from './config/mailer-config.js';
+import cors from 'cors';
+
+const corsOptions={
+    origin:[
+        'http://localhost:3000',
+        'https://doblefoco.cl'
+    ],
+    optionsSucessStatus: 200
+}
 
 const ENDPOINT = '/mailer';
 const PORT = 4200
@@ -10,22 +19,19 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-
-// const corsOptions = {
-//     origin: 'http://example.com',
-//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-//   }
+app.use(cors(corsOptions));
 
 app.get(ENDPOINT, async (req, res) => {
     try {
+        const serverCheck = await testnodemailer()
+        const serverCheckStatus = serverCheck ? 'pass' : 'fail';
         res.status(200).json({
             timestamp: getTimestamp(),
             status: 200,
             message: 'Server working normally',
+            nodeMailerCheck: serverCheckStatus,
             commands: {
                 GET: "Check server status, this method",
-                OPTIONS: "Verify nodemailer connection and credentials",
                 POST: "Send mail",
                 PUT: "Massive mode send mail",
                 POSTFORMATBODY: {
@@ -113,33 +119,6 @@ app.put(ENDPOINT, async (req, res) => {
         res.status(500).json({ error: 'Internal server error' }); // You can provide a generic error message here
     }
 });
-
-app.options(ENDPOINT, async (req, res) => {
-    logger('OPTIONS /mailer: Verify request recieved...');
-    try {
-        const result = await testnodemailer(); // Await the async function
-
-        if (result === true) {
-            res.status(200).json({
-                timestamp: getTimestamp(),
-                status: 200,
-                message: 'Nodemailer successfully verified'
-            });
-            logger('OPTIONS /mailer: NodeMailer verified successfully {200, ok}');
-        } else {
-            res.status(500).json({
-                error: 'Nodemailer failed to verify status'
-            });
-            console.log(getTimestamp(), 'Error:', 'Nodemailer failed to verify status');
-            logger('OPTIONS /mailer: Nodemailer failed to verify status');
-        }
-    } catch (error) {
-        res.status(500).json({ error: error.message }); // Use error.message
-        logger(`OPTIONS /mailer: Status sent {500, error}\n${error}`);
-    }
-});
-
-
 
 app.listen(PORT, () => {
     const version = '0.1.1'
