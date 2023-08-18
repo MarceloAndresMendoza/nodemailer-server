@@ -66,21 +66,20 @@ export const mailsend = async (data, massivemode) => {
 
                         sentEmails.push(...batchRecipients);
                         logger(`Batch ${batchNumber / batchSize + 1} / ${Math.ceil(recipientsArray.length / batchSize)} sent (${batchRecipients.length} recipients/${batchSize} max)`);
-                        logger(`Sent emails: ${sentEmails.join('; ')}`);
                         break; // Break the retry loop on success
                     } catch (error) {
                         failedEmails.push(...batchRecipients);
                         logger(`Batch ${batchNumber / batchSize + 1} / ${Math.ceil(recipientsArray.length / batchSize)} failed (Attempt ${retry}): ${batchRecipients.length} recipients`);
-                        logger(`Failed emails: ${failedEmails.join('; ')}`);
 
                         if (retry < retryAttempts) {
                             await new Promise(resolve => setTimeout(resolve, retryTimeout)); // Wait before retrying
                         }
                     }
                 }
-
                 await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before the next batch
             }
+            logger(`Sent emails: ${sentEmails.join('; ')}`);
+            logger(`Failed emails: ${failedEmails.join('; ')}`);
 
             if (sentEmails.length > 0) { logger(`Mail sent : ${sentEmails.length} emails`); }
             if (failedEmails.length > 0) { logger(`Mail failed : ${failedEmails.length} emails`); }
