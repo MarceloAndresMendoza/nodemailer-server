@@ -12,7 +12,7 @@ export const testnodemailer = async () => {
         await new Promise((resolve, reject) => {
             transporter.verify((error, success) => {
                 if (error) {
-                    logger("NODEMAILER:", error);
+                    logger(`NODEMAILER: ${error}`);
                     reject(false);
                 } else {
                     logger("NODEMAILER: Succesfully verified");
@@ -22,7 +22,7 @@ export const testnodemailer = async () => {
         });
         return true; // Return true on success
     } catch (error) {
-        console.error("An error occurred:", error);
+        logger(`An error ocurred: ${error}`);
         return false; // Return false on error
     }
 };
@@ -105,6 +105,7 @@ export const mailsend = async (data, massivemode) => {
             } catch (error) {
                 failedEmails.push(to, cc, cco); // Add failed emails to array
                 logger(`Mail failed!: ${failedEmails}`);
+                logger(`Error description: ${error}`);
 
                 return false; // Return false on error
             }

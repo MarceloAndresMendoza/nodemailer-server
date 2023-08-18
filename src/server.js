@@ -1,9 +1,9 @@
 import express from 'express';
+import cors from 'cors';
 import { getTimestamp } from './utils/utils.js';
 import { logger } from './utils/logger.js';
 import { mailsend, testnodemailer } from './utils/mailer.js';
 import { authkey } from './config/mailer-config.js';
-import cors from 'cors';
 
 const corsOptions={
     origin:[
